@@ -10,6 +10,7 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpHeaders;
 import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -19,7 +20,8 @@ import java.io.IOException;
 public class ChatGptService {
 
     private static final String API_ENDPOINT = "https://api.openai.com/v1/chat/completions";
-    private static final String API_KEY = "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";
+    @Value("${api.key}")
+    private String API_KEY;
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     private PatientService patientService;
