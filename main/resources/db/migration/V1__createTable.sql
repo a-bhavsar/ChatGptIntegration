@@ -18,4 +18,22 @@ CREATE TABLE IF NOT EXISTS "medical_history" (
     prescription varchar(500) NOT NULL,
     patient_id INT,
     FOREIGN KEY (patient_id) REFERENCES "patient"(id)
-)
+);
+
+CREATE TABLE IF NOT EXISTS "medical_appointment" (
+    id SERIAL PRIMARY KEY,
+    first_name varchar(50),
+    last_name varchar(50),
+    age INT,
+    gender varchar(50),
+    blood_group varchar(50),
+    symptoms varchar(500),
+    prescription varchar(200),
+    disease varchar(200),
+    department varchar(200),
+    next_schedule date,
+    recommended_food varchar(500),
+    restricted_food varchar(500),
+    blood_pressure double precision,
+    diabetes_level double precision
+);
